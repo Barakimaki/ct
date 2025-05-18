@@ -1,0 +1,12 @@
+<div class="page-container">
+  <h2>Предметы</h2>
+
+  <div class="grid-container">
+    <mat-card *ngFor="let subject of subjects" (click)="goToTests(subject.id)" class="subject-card">
+      <mat-card-content>
+        <h3>{{ subject.name }}</h3>
+        <p>Выберите предмет, чтобы начать подготовку</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

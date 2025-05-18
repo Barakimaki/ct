@@ -1,0 +1,54 @@
+<div class="test-container">
+  <div class="header">
+    <h2>Тестирование</h2>
+    <div class="timer" *ngIf="timeLeft">
+      ⏱️ Осталось времени: {{ formatTime(timeLeft) }}
+    </div>
+  </div>
+
+  <mat-card class="question-card" *ngIf="currentQuestion">
+    <mat-card-content>
+      <p><strong>Вопрос {{ currentQuestionIndex + 1 }} / {{ questions.length }}</strong></p>
+      <h3>{{ currentQuestion.text }}</h3>
+
+      <div class="options" *ngIf="currentQuestion.type === 'single'">
+        <mat-radio-group [(ngModel)]="selectedAnswers[0]">
+          <mat-radio-button *ngFor="let option of currentQuestion.options" [value]="option">
+            {{ option }}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="options" *ngIf="currentQuestion.type === 'multiple'">
+        <mat-checkbox
+          *ngFor="let option of currentQuestion.options"
+          [checked]="selectedAnswers.includes(option)"
+          (change)="toggleMultiple(option, $event.checked)"
+        >
+          {{ option }}
+        </mat-checkbox>
+      </div>
+
+      <div class="open-answer" *ngIf="currentQuestion.type === 'open'">
+        <textarea [(ngModel)]="selectedAnswers[0]" placeholder="Введите ваш ответ..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" (click)="onSubmitAnswer()" [disabled]="isSubmitted">
+          Ответить
+        </button>
+
+        <button mat-raised-button color="accent" (click)="onNextQuestion()" *ngIf="isSubmitted">
+          Следующий вопрос
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="result" *ngIf="isSubmitted && isCorrect !== null">
+    <p [style.color]="isCorrect ? 'green' : 'red'">
+      {{ isCorrect ? 'Правильно!' : 'Неправильно.' }}
+    </p>
+    <p><strong>Объяснение:</strong> {{ currentQuestion.explanation || 'Нет объяснения' }}</p>
+  </div>
+</div>

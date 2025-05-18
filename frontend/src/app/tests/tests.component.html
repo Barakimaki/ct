@@ -1,0 +1,25 @@
+<div class="page-container">
+  <h2>Тесты</h2>
+
+  <div *ngIf="tests.length === 0" class="no-tests">
+    Нет доступных тестов для этого предмета.
+  </div>
+
+  <div class="grid-container">
+    <mat-card *ngFor="let test of tests" class="test-card">
+      <mat-card-header>
+        <mat-card-title>{{ test.title }}</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <p *ngIf="test.description">{{ test.description }}</p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="startTest(test.id)">
+          Начать тест
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

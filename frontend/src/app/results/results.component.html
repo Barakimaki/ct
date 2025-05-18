@@ -1,0 +1,46 @@
+<div class="results-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Результаты теста</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>Правильных ответов: {{ result.correctAnswers }} из {{ result.totalQuestions }}</p>
+      <p>Процент выполнения: {{ result.percentage }}%</p>
+
+      <div class="progress-bar">
+        <mat-progress-bar
+          mode="determinate"
+          [value]="result.percentage"
+          [color]="result.percentage >= 75 ? 'primary' : result.percentage >= 50 ? 'accent' : 'warn'"
+        ></mat-progress-bar>
+      </div>
+
+      <h3>Ошибки</h3>
+      <div *ngIf="incorrectAnswers.length === 0" class="no-errors">
+        Нет ошибок! Отличная работа!
+      </div>
+
+      <div class="error-list" *ngFor="let q of incorrectAnswers">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ q.text }}
+            </mat-panel-title>
+            <mat-panel-description>
+              Правильный(е) ответ(ы): {{ q.correctAnswers.join(', ') }}
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <p><strong>Ваш ответ:</strong> {{ q.selectedAnswers.join(', ') }}</p>
+          <p><strong>Объяснение:</strong> {{ q.explanation || 'Нет объяснения' }}</p>
+        </mat-expansion-panel>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/subjects">Назад к предметам</button>
+      <button mat-raised-button color="accent" (click)="repeatTest()">Повторить ошибки</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

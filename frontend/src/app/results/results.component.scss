@@ -1,0 +1,28 @@
+.results-container {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+mat-card {
+  width: 100%;
+  max-width: 800px;
+}
+
+.progress-bar {
+  margin: 16px 0;
+}
+
+.no-errors {
+  color: green;
+  font-style: italic;
+}
+
+.error-list {
+  margin-bottom: 16px;
+}
+
+mat-expansion-panel {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+}

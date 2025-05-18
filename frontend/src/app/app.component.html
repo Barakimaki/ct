@@ -1,0 +1,21 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="title">ЦТ Тренажёр</span>
+
+  <div class="spacer"></div>
+
+  <nav class="nav-links">
+    <a mat-button routerLink="/subjects" *ngIf="authService.isLoggedIn()">Тесты</a>
+    <a mat-button routerLink="/dashboard" *ngIf="authService.isLoggedIn()">Мои результаты</a>
+    <a mat-button routerLink="/login" *ngIf="!authService.isLoggedIn()">Вход</a>
+    <a mat-button routerLink="/register" *ngIf="!authService.isLoggedIn()">Регистрация</a>
+    <button mat-button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Выход</button>
+  </nav>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer" *ngIf="true">
+  <p>© 2025 ЦТ Тренажёр | Подготовка к централизованному тестированию</p>
+</footer>

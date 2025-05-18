@@ -1,0 +1,39 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  .nav-links {
+    a, button {
+      color: white;
+      text-decoration: none;
+      margin-left: 16px;
+      font-weight: 500;
+    }
+  }
+}
+
+.content {
+  padding: 24px;
+  min-height: calc(100vh - 120px);
+  background-color: #f9f9f9;
+}
+
+.footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #fafafa;
+  color: #777;
+  font-size: 0.9rem;
+  border-top: 1px solid #e0e0e0;
+}
