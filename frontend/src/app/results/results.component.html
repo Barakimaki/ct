@@ -1,5 +1,5 @@
 <div class="results-container">
-  <mat-card>
+  <mat-card class="result-card">
     <mat-card-header>
       <mat-card-title>Результаты теста</mat-card-title>
     </mat-card-header>
@@ -12,7 +12,7 @@
         <mat-progress-bar
           mode="determinate"
           [value]="result.percentage"
-          [color]="result.percentage >= 75 ? 'primary' : result.percentage >= 50 ? 'accent' : 'warn'"
+          [color]="getLabelColor(result.percentage)"
         ></mat-progress-bar>
       </div>
 
@@ -22,7 +22,7 @@
       </div>
 
       <div class="error-list" *ngFor="let q of incorrectAnswers">
-        <mat-expansion-panel>
+        <mat-expansion-panel class="error-panel">
           <mat-expansion-panel-header>
             <mat-panel-title>
               {{ q.text }}
@@ -38,7 +38,7 @@
       </div>
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions class="card-actions">
       <button mat-raised-button color="primary" routerLink="/subjects">Назад к предметам</button>
       <button mat-raised-button color="accent" (click)="repeatTest()">Повторить ошибки</button>
     </mat-card-actions>

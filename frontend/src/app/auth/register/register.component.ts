@@ -4,9 +4,11 @@ import {AuthService} from '../auth.service';
 import {RegisterDto} from "../auth.model";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {FormsModule} from "@angular/forms";
-import {MatFormField} from "@angular/material/form-field";
+import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-register',
@@ -22,25 +24,29 @@ import {MatButton} from "@angular/material/button";
     MatInput,
     MatCardActions,
     RouterLink,
-    MatButton
+    MatButton,
+    MatIcon,
+    MatError,
+    MatLabel,
+    NgIf
   ],
   standalone: true
 })
 export class RegisterComponent {
-    model: RegisterDto = {
-        fullName: '',
-        email: '',
-        password: '',
-    };
+  model: RegisterDto = {
+    fullName: '',
+    email: '',
+    password: '',
+  };
 
-    constructor(private authService: AuthService, private router: Router) {
-    }
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
-    onSubmit() {
-        this.authService.register(this.model).subscribe(() => {
-            this.router.navigate(['/login']);
-        }, err => {
-            alert('Ошибка регистрации');
-        });
-    }
+  onSubmit() {
+    this.authService.register(this.model).subscribe(() => {
+      this.router.navigate(['/login']);
+    }, err => {
+      alert('Ошибка регистрации');
+    });
+  }
 }

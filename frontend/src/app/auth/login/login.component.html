@@ -1,25 +1,39 @@
 <div class="auth-container">
-  <mat-card>
+  <mat-card class="auth-card">
     <mat-card-header>
       <mat-card-title>Вход</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
       <form #form="ngForm" (ngSubmit)="onSubmit()">
-        <mat-form-field appearance="outline">
-          <input matInput [(ngModel)]="model.email" name="email" required placeholder="Email">
+        <!-- Email -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput [(ngModel)]="model.email" name="email" type="email"
+                 required email #emailControl="ngModel">
+          <mat-error *ngIf="emailControl.invalid && emailControl.touched">Неверный формат email</mat-error>
         </mat-form-field>
 
-        <mat-form-field appearance="outline">
+        <!-- Пароль -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Пароль</mat-label>
           <input matInput [(ngModel)]="model.password" name="password" type="password"
-                 required placeholder="Пароль">
+                 required minlength="3" #passwordControl="ngModel">
+          <mat-error *ngIf="passwordControl.invalid && passwordControl.touched">
+            Минимум 3 символа
+          </mat-error>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" type="submit">Войти</button>
+        <!-- Кнопка -->
+        <div class="actions">
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+            Войти
+          </button>
+        </div>
       </form>
     </mat-card-content>
 
-    <mat-card-actions>
+    <mat-card-actions class="card-actions">
       <p>Нет аккаунта? <a routerLink="/register">Зарегистрироваться</a></p>
     </mat-card-actions>
   </mat-card>

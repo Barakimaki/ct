@@ -2,24 +2,33 @@
   width: 100%;
 }
 
+.question-list {
+  margin-top: 24px;
+}
+
+.question-card {
+  margin-bottom: 16px;
+}
+
 .option-row {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 8px;
 }
 
-.question-list {
-  margin-bottom: 24px;
+.options-container {
+  margin-bottom: 20px;
+}
+
+.form-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 16px;
 }
 
 .no-questions {
+  text-align: center;
   color: #999;
   font-style: italic;
-}
-
-.actions {
-  margin-top: 16px;
-  display: flex;
-  gap: 16px;
 }

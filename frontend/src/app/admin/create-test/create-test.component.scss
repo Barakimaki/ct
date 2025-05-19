@@ -1,0 +1,25 @@
+.full-width {
+  width: 100%;
+}
+
+.test-form-card {
+  max-width: 600px;
+  margin: 24px auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  mat-form-field {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+
+  button {
+    min-width: 200px;
+  }
+}

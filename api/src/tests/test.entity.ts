@@ -11,7 +11,7 @@ import {Session} from "../sessions/session.entity";
 
 @Entity()
 export class Test {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column()

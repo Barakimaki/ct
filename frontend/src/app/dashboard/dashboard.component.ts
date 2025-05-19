@@ -13,6 +13,7 @@ import {DatePipe, NgForOf, NgIf} from "@angular/common";
 import {MatProgressBar} from "@angular/material/progress-bar";
 import {MatButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-dashboard',
@@ -27,6 +28,7 @@ import {RouterLink} from "@angular/router";
     MatCardContent,
     MatProgressBar,
     MatCardActions,
+    MatIcon,
     MatButton,
     RouterLink,
     DatePipe,

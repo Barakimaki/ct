@@ -10,6 +10,8 @@ import {MatButton} from "@angular/material/button";
 import {NgForOf, NgIf} from "@angular/common";
 import {MatCard, MatCardContent} from "@angular/material/card";
 import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
+import {MatFormField} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
 
 @Component({
   selector: 'app-repeat',
@@ -24,7 +26,9 @@ import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
     MatCardContent,
     MatRadioGroup,
     MatRadioButton,
-    NgForOf
+    NgForOf,
+    MatFormField,
+    MatInput
   ],
   standalone: true
 })
@@ -48,24 +52,11 @@ export class RepeatComponent implements OnInit {
   }
 
   loadQuestions(): void {
-    // Получаем результаты сессии
     this.testService.getResults(this.sessionId).subscribe((result) => {
-      // Берём только неправильные вопросы
-      this.questions = result.questions
-        .filter((q) => !q.isCorrect)
-        .map((q) => ({
-          id: q.questionId,
-          text: q.text,
-          options: q.options,
-          correctAnswers: q.correctAnswers,
-          explanation: q.explanation,
-          type: q.type,
-        }));
-
+      this.questions = result.questions.filter((q: any) => !q.isCorrect);
       if (this.questions.length === 0) {
-        alert('Нет неправильных вопросов для повторения.');
-        // Перенаправляем обратно к результатам
-        this.router.navigate(['/results']);
+        alert('Нет неправильных вопросов для повторения');
+        this.router.navigate(['/results', this.sessionId]);
       }
     });
   }
@@ -74,27 +65,22 @@ export class RepeatComponent implements OnInit {
     return this.questions[this.currentQuestionIndex];
   }
 
-  selectAnswer(answer: string): void {
-    if (this.currentQuestion.type === 'single') {
-      this.selectedAnswers = [answer];
-    } else if (this.currentQuestion.type === 'multiple') {
-      const index = this.selectedAnswers.indexOf(answer);
-      index === -1
-        ? this.selectedAnswers.push(answer)
-        : this.selectedAnswers.splice(index, 1);
+  selectAnswer(option: string, isChecked: boolean): void {
+    if (isChecked) {
+      this.selectedAnswers.push(option);
+    } else {
+      const index = this.selectedAnswers.indexOf(option);
+      if (index > -1) {
+        this.selectedAnswers.splice(index, 1);
+      }
     }
   }
 
   onSubmitAnswer(): void {
     if (this.selectedAnswers.length === 0) return;
-
     this.isSubmitted = true;
 
-    this.testService.submitAnswer(
-      this.sessionId,
-      this.currentQuestion.id,
-      this.selectedAnswers
-    ).subscribe((res: any) => {
+    this.testService.submitAnswer(this.sessionId, this.currentQuestion.id, this.selectedAnswers).subscribe((res: any) => {
       this.isCorrect = res.isCorrect;
     });
   }
@@ -107,7 +93,7 @@ export class RepeatComponent implements OnInit {
 
     if (this.currentQuestionIndex >= this.questions.length) {
       alert('Вы повторили все ошибки!');
-      this.currentQuestionIndex--;
+      this.router.navigate(['/results', this.sessionId]);
     }
   }
 }

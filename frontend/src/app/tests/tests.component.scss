@@ -1,38 +1,25 @@
 .page-container {
-  padding: 24px;
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
+  gap: 24px;
+  justify-items: center;
 }
 
 .test-card {
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-
-  h3 {
-    margin: 0;
-    font-size: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   }
 
   p {
-    color: #666;
-    font-size: 14px;
+    margin: 8px 0;
   }
-
-  mat-card-actions {
-    justify-content: flex-end;
-  }
-}
-
-.no-tests {
-  color: #999;
-  font-style: italic;
 }

@@ -1,28 +1,47 @@
 .results-container {
   padding: 24px;
-  display: flex;
-  justify-content: center;
 }
 
-mat-card {
-  width: 100%;
+.result-card {
   max-width: 800px;
+  margin: auto;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  h3 {
+    margin-top: 24px;
+    color: #d32f2f;
+  }
+
+  p {
+    margin-bottom: 8px;
+  }
 }
 
 .progress-bar {
   margin: 16px 0;
+  .mat-progress-bar {
+    height: 12px;
+    border-radius: 6px;
+  }
 }
 
 .no-errors {
-  color: green;
+  text-align: center;
   font-style: italic;
+  color: green;
+  margin: 24px 0;
 }
 
 .error-list {
   margin-bottom: 16px;
+
+  .error-panel {
+    margin-bottom: 12px;
+    background-color: #fff8e1;
+  }
 }
 
-mat-expansion-panel {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
+.card-actions {
+  justify-content: space-between;
 }

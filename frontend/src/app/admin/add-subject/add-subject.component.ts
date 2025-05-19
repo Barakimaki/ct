@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {MatCard, MatCardContent} from "@angular/material/card";
 import {FormsModule} from "@angular/forms";
-import {MatFormField} from "@angular/material/form-field";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
 import {SubjectService} from "../../subjects/subject.service";
@@ -16,7 +16,8 @@ import {SubjectService} from "../../subjects/subject.service";
     FormsModule,
     MatFormField,
     MatInput,
-    MatButton
+    MatButton,
+    MatLabel
   ],
   standalone: true
 })

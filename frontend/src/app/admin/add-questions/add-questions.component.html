@@ -2,7 +2,7 @@
 
 <!-- Список существующих вопросов -->
 <div *ngIf="questions.length > 0" class="question-list">
-  <mat-card *ngFor="let q of questions; let i = index">
+  <mat-card *ngFor="let q of questions; let i = index" class="question-card">
     <mat-card-header>
       <mat-card-title>Вопрос {{ i + 1 }}: {{ q.text }}</mat-card-title>
     </mat-card-header>
@@ -19,7 +19,6 @@
     </mat-card-content>
 
     <mat-card-actions>
-      <!-- Можно реализовать редактирование -->
       <button mat-icon-button color="warn" (click)="deleteQuestion(q.id)">
         <mat-icon>delete</mat-icon>
       </button>
@@ -31,37 +30,45 @@
   Нет добавленных вопросов. Добавьте первый вопрос ниже.
 </div>
 
-<!-- Форма для добавления вопроса -->
-<mat-divider style="margin: 20px 0;"></mat-divider>
+<mat-divider style="margin: 24px 0;"></mat-divider>
 
-<h4>Добавить новый вопрос</h4>
+<h4>Создать новый вопрос</h4>
 
-<form (ngSubmit)="submitQuestion()">
+<form #questionForm="ngForm" (ngSubmit)="submitQuestion()">
+  <!-- Текст вопроса -->
   <mat-form-field appearance="outline" class="full-width">
-    <textarea matInput [(ngModel)]="model.text" name="text" placeholder="Текст вопроса" required></textarea>
+    <textarea matInput [(ngModel)]="model.text" name="text" placeholder="Введите текст вопроса" required></textarea>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+  <!-- Тип вопроса -->
+  <mat-form-field appearance="outline" class="full-width">
     <mat-label>Тип вопроса</mat-label>
-    <mat-select [(ngModel)]="model.type" name="type">
+    <mat-select [(ngModel)]="model.type" name="type" required>
       <mat-option value="single">Один правильный</mat-option>
       <mat-option value="multiple">Множественный выбор</mat-option>
       <mat-option value="open">Открытый ответ</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <div class="options-container" *ngIf="model.type !== 'open'">
-    <p>Варианты ответов:</p>
-    <div class="option-row" *ngFor="let opt of model.options; let i = index">
-      <input matInput [(ngModel)]="model.options[i]" name="option_{{i}}">
-      <button mat-icon-button color="warn" (click)="removeOption(i)" *ngIf="model.options.length > 1">
-        <mat-icon>delete</mat-icon>
-      </button>
-    </div>
-    <button mat-stroked-button (click)="addOption()">+ Добавить вариант</button>
+  <!-- Варианты ответов -->
+  <div class="options-container" *ngIf="form && form.get('type')?.value !== 'open'">
+  <p><strong>Варианты ответов:</strong></p>
+
+  <div class="option-row" *ngFor="let option of options.controls; let i = index">
+    <input matInput [formControlName]="i">
+    <button mat-icon-button color="warn" (click)="removeOption(i)" type="button"
+            *ngIf="options.length > 1">
+      <mat-icon>delete</mat-icon>
+    </button>
   </div>
 
-  <mat-form-field appearance="outline" *ngIf="model.type === 'single' || model.type === 'multiple'">
+  <button mat-stroked-button color="primary" (click)="addOption()" type="button">
+    + Добавить вариант
+  </button>
+</div>
+
+  <!-- Правильные ответы -->
+  <mat-form-field appearance="outline" *ngIf="model.type === 'single' || model.type === 'multiple'" class="full-width">
     <mat-label>Правильные ответы</mat-label>
     <mat-select [(ngModel)]="model.correctAnswers" name="correctAnswers"
                 [multiple]="model.type === 'multiple'">
@@ -71,11 +78,13 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="outline">
+  <!-- Объяснение -->
+  <mat-form-field appearance="outline" class="full-width">
     <textarea matInput [(ngModel)]="model.explanation" name="explanation" placeholder="Объяснение"></textarea>
   </mat-form-field>
 
-  <div class="actions">
+  <!-- Кнопки -->
+  <div class="form-actions">
     <button mat-raised-button color="accent" type="submit">Добавить вопрос</button>
     <button mat-stroked-button (click)="finishTest()" type="button">Завершить</button>
   </div>

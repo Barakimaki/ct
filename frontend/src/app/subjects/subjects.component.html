@@ -1,8 +1,13 @@
 <div class="page-container">
   <h2>Предметы</h2>
+  <p>Выберите предмет, чтобы начать подготовку к ЦТ.</p>
+
+  <div *ngIf="subjects.length === 0" class="no-subjects">
+    Нет доступных предметов.
+  </div>
 
   <div class="grid-container">
-    <mat-card *ngFor="let subject of subjects" (click)="goToTests(subject.id)" class="subject-card">
+    <mat-card *ngFor="let subject of subjects" class="subject-card" (click)="goToTests(subject.id)">
       <mat-card-content>
         <h3>{{ subject.name }}</h3>
         <p>Выберите предмет, чтобы начать подготовку</p>

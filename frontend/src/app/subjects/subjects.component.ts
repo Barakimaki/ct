@@ -3,7 +3,7 @@ import { Subject } from './subject.model';
 import { SubjectService } from './subject.service';
 import { Router } from '@angular/router';
 import {MatCard, MatCardContent} from "@angular/material/card";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-subjects',
@@ -12,7 +12,8 @@ import {NgForOf} from "@angular/common";
   imports: [
     MatCard,
     MatCardContent,
-    NgForOf
+    NgForOf,
+    NgIf
   ],
   standalone: true
 })

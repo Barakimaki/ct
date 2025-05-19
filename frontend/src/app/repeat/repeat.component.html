@@ -1,13 +1,18 @@
 <div class="repeat-container">
   <div class="header">
     <h2>Повторение ошибок</h2>
+    <p>Повторите вопросы, в которых вы ошиблись ранее.</p>
   </div>
 
   <mat-card class="question-card" *ngIf="currentQuestion">
     <mat-card-content>
-      <p><strong>Вопрос {{ currentQuestionIndex + 1 }} / {{ questions.length }}</strong></p>
+      <div class="question-header">
+        <span class="question-counter">Вопрос {{ currentQuestionIndex + 1 }} / {{ questions.length }}</span>
+      </div>
+
       <h3>{{ currentQuestion.text }}</h3>
 
+      <!-- Варианты ответов -->
       <div class="options" *ngIf="currentQuestion.type === 'single'">
         <mat-radio-group [(ngModel)]="selectedAnswers[0]">
           <mat-radio-button *ngFor="let option of currentQuestion.options" [value]="option">
@@ -20,28 +25,36 @@
         <mat-checkbox
           *ngFor="let option of currentQuestion.options"
           [checked]="selectedAnswers.includes(option)"
-          (change)="selectAnswer(option)"
+          (change)="selectAnswer(option, $event.checked)"
         >
           {{ option }}
         </mat-checkbox>
       </div>
 
       <div class="open-answer" *ngIf="currentQuestion.type === 'open'">
-        <textarea [(ngModel)]="selectedAnswers[0]" placeholder="Введите ваш ответ..."></textarea>
+        <mat-form-field appearance="outline" class="full-width">
+          <textarea matInput [(ngModel)]="selectedAnswers[0]" placeholder="Введите ваш ответ..."></textarea>
+        </mat-form-field>
       </div>
 
-      <div class="actions">
-        <button mat-raised-button color="primary" (click)="onSubmitAnswer()" [disabled]="isSubmitted">
+      <!-- Кнопки -->
+      <div class="actions" *ngIf="!isSubmitted; else nextButton">
+        <button mat-raised-button color="primary" (click)="onSubmitAnswer()" [disabled]="selectedAnswers.length === 0">
           Ответить
         </button>
-
-        <button mat-raised-button color="accent" (click)="onNextQuestion()" *ngIf="isSubmitted">
-          Следующий
-        </button>
       </div>
+
+      <ng-template #nextButton>
+        <div class="actions">
+          <button mat-raised-button color="accent" (click)="onNextQuestion()">
+            Следующий вопрос
+          </button>
+        </div>
+      </ng-template>
     </mat-card-content>
   </mat-card>
 
+  <!-- Результат -->
   <div class="result" *ngIf="isSubmitted && isCorrect !== null">
     <p [style.color]="isCorrect ? 'green' : 'red'">
       {{ isCorrect ? 'Правильно!' : 'Неправильно.' }}

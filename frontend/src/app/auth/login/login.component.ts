@@ -4,9 +4,10 @@ import {AuthService} from '../auth.service';
 import {LoginDto} from "../auth.model";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 import {FormsModule} from "@angular/forms";
-import {MatFormField} from "@angular/material/form-field";
+import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatButton} from "@angular/material/button";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -21,8 +22,11 @@ import {MatButton} from "@angular/material/button";
     MatFormField,
     MatInput,
     MatCardActions,
+    MatLabel,
+    MatError,
     RouterLink,
-    MatButton
+    MatButton,
+    NgIf
   ],
   standalone: true
 })

@@ -8,7 +8,9 @@
     <a mat-button routerLink="/dashboard" *ngIf="authService.isLoggedIn()">Мои результаты</a>
     <a mat-button routerLink="/login" *ngIf="!authService.isLoggedIn()">Вход</a>
     <a mat-button routerLink="/register" *ngIf="!authService.isLoggedIn()">Регистрация</a>
-    <button mat-button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Выход</button>
+    <button mat-button *ngIf="authService.isLoggedIn()" (click)="authService.logout()">
+      Выход
+    </button>
   </nav>
 </mat-toolbar>
 
@@ -16,6 +18,6 @@
   <router-outlet></router-outlet>
 </div>
 
-<footer class="footer" *ngIf="true">
+<footer class="footer">
   <p>© 2025 ЦТ Тренажёр | Подготовка к централизованному тестированию</p>
 </footer>

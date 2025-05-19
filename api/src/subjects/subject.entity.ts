@@ -3,12 +3,12 @@ import {Test} from "../tests/test.entity";
 
 @Entity()
 export class Subject {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column({ unique: true })
     name: string; // например: "Математика"
 
-    @OneToMany(() => Test, (test) => test.subject)
+    @OneToMany(() => Test, (test) => test.subject, { onDelete: 'CASCADE' })
     tests: Test[];
 }

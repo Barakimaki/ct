@@ -36,6 +36,7 @@ import {MatButton} from "@angular/material/button";
   standalone: true
 })
 export class TestComponent implements OnInit, OnDestroy {
+  sessionId!: string;
   testId!: string;
   questions: Question[] = [];
   currentQuestionIndex = 0;
@@ -54,20 +55,19 @@ export class TestComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.testId = this.route.snapshot.paramMap.get('testId')!;
+    this.sessionId = this.route.snapshot.queryParamMap.get('sessionId')!;
+
     this.loadTest();
+    this.startTimer(60 * 5); // 5 минут
   }
 
   ngOnDestroy(): void {
     clearInterval(this.timer);
   }
 
-  loadTest(): void {
+  loadTest() {
     this.testService.getQuestionsByTestId(this.testId).subscribe((questions) => {
       this.questions = questions;
-      if (this.questions.length > 0) {
-        this.startSession();
-        this.startTimer(60 * 5); // 5 минут (пример)
-      }
     });
   }
 
@@ -88,7 +88,7 @@ export class TestComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  get currentQuestion(): Question {
+  get currentQuestion(): any {
     return this.questions[this.currentQuestionIndex];
   }
 
@@ -106,11 +106,7 @@ export class TestComponent implements OnInit, OnDestroy {
 
     this.isSubmitted = true;
 
-    this.testService.submitAnswer(
-      'session-123', // sessionId (временно)
-      this.currentQuestion.id,
-      this.selectedAnswers
-    ).subscribe((res: any) => {
+    this.testService.submitAnswer(this.sessionId, this.currentQuestion.id, this.selectedAnswers).subscribe((res: any) => {
       this.isCorrect = res.isCorrect;
     });
   }
@@ -128,7 +124,9 @@ export class TestComponent implements OnInit, OnDestroy {
 
   finishTest(): void {
     clearInterval(this.timer);
-    this.router.navigate(['/results']);
+    this.router.navigate(['/results'], {
+      queryParams: { sessionId: this.sessionId },
+    });
   }
 
   formatTime(seconds: number): string {

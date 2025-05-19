@@ -1,17 +1,19 @@
 <h2>Все предметы</h2>
 
-<mat-card *ngFor="let subject of subjects" class="subject-card">
-  <mat-card-content>
-    <p><strong>ID:</strong> {{ subject.id }}</p>
-    <p><strong>Название:</strong> {{ subject.name }}</p>
-  </mat-card-content>
+<div class="grid-container">
+  <mat-card *ngFor="let subject of subjects" class="subject-card">
+    <mat-card-content>
+      <p><strong>ID:</strong> {{ subject.id }}</p>
+      <p><strong>Название:</strong> {{ subject.name }}</p>
+    </mat-card-content>
 
-  <mat-card-actions>
-    <button mat-icon-button color="warn" (click)="deleteSubject(subject.id)">
-      <mat-icon>delete</mat-icon>
-    </button>
-  </mat-card-actions>
-</mat-card>
+    <mat-card-actions>
+      <button mat-icon-button color="warn" (click)="deleteSubject(subject.id)" matTooltip="Удалить">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
 <div *ngIf="subjects.length === 0" class="no-subjects">
   Нет доступных предметов.

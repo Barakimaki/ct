@@ -1,13 +1,16 @@
-<h3>Добавить предмет</h3>
+<h3>Добавить новый предмет</h3>
 
-<mat-card>
+<mat-card class="subject-form-card">
   <mat-card-content>
     <form (ngSubmit)="onSubmit()">
       <mat-form-field appearance="outline" class="full-width">
-        <input matInput [(ngModel)]="model.name" name="name" placeholder="Название предмета" required>
+        <mat-label>Название предмета</mat-label>
+        <input matInput [(ngModel)]="model.name" name="name" placeholder="Например: Математика" required>
       </mat-form-field>
 
-      <button mat-raised-button color="primary" type="submit">Добавить предмет</button>
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">Добавить предмет</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

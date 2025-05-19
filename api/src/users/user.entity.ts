@@ -3,7 +3,7 @@ import {Session} from "../sessions/session.entity";
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column()

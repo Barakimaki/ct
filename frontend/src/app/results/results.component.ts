@@ -64,6 +64,12 @@ export class ResultsComponent implements OnInit {
     });
   }
 
+  getLabelColor(percentage: number): string {
+    if (percentage >= 75) return 'primary';
+    if (percentage >= 50) return 'accent';
+    return 'warn';
+  }
+
   repeatTest(): void {
     this.router.navigate(['/repeat', this.sessionId]);
   }

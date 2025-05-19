@@ -11,7 +11,7 @@ import { Answer } from '../answers/answer.entity';
 
 @Entity()
 export class Question {
-    @PrimaryGeneratedColumn('uuid')
+    @PrimaryGeneratedColumn()
     id: string;
 
     @Column({ type: 'text' })

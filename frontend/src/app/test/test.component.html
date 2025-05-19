@@ -8,9 +8,10 @@
 
   <mat-card class="question-card" *ngIf="currentQuestion">
     <mat-card-content>
-      <p><strong>Вопрос {{ currentQuestionIndex + 1 }} / {{ questions.length }}</strong></p>
+      <p class="question-counter">Вопрос {{ currentQuestionIndex + 1 }} / {{ questions.length }}</p>
       <h3>{{ currentQuestion.text }}</h3>
 
+      <!-- Одиночный выбор -->
       <div class="options" *ngIf="currentQuestion.type === 'single'">
         <mat-radio-group [(ngModel)]="selectedAnswers[0]">
           <mat-radio-button *ngFor="let option of currentQuestion.options" [value]="option">
@@ -19,6 +20,7 @@
         </mat-radio-group>
       </div>
 
+      <!-- Множественный выбор -->
       <div class="options" *ngIf="currentQuestion.type === 'multiple'">
         <mat-checkbox
           *ngFor="let option of currentQuestion.options"
@@ -29,10 +31,12 @@
         </mat-checkbox>
       </div>
 
+      <!-- Открытый ответ -->
       <div class="open-answer" *ngIf="currentQuestion.type === 'open'">
         <textarea [(ngModel)]="selectedAnswers[0]" placeholder="Введите ваш ответ..."></textarea>
       </div>
 
+      <!-- Кнопки -->
       <div class="actions">
         <button mat-raised-button color="primary" (click)="onSubmitAnswer()" [disabled]="isSubmitted">
           Ответить
@@ -45,6 +49,7 @@
     </mat-card-content>
   </mat-card>
 
+  <!-- Результат после ответа -->
   <div class="result" *ngIf="isSubmitted && isCorrect !== null">
     <p [style.color]="isCorrect ? 'green' : 'red'">
       {{ isCorrect ? 'Правильно!' : 'Неправильно.' }}
