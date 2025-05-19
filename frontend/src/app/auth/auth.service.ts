@@ -57,4 +57,11 @@ export class AuthService {
       )
     );
   }
+
+  getUserIdFromToken(): number {
+    const token = localStorage.getItem('token');
+    if (!token) return -1;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.sub; // или sub, в зависимости от структуры токена
+  }
 }

@@ -11,7 +11,7 @@ import { Answer } from '../answers/answer.entity';
 
 @Entity()
 export class Question {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column({ type: 'text' })

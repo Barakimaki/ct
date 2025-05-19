@@ -10,7 +10,7 @@ import { Question } from '../questions/question.entity';
 
 @Entity()
 export class Answer {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column({ type: 'json' })

@@ -3,7 +3,7 @@ import {Test} from "../tests/test.entity";
 
 @Entity()
 export class Subject {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column({ unique: true })

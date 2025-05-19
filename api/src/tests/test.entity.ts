@@ -11,14 +11,14 @@ import {Session} from "../sessions/session.entity";
 
 @Entity()
 export class Test {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column()
     title: string;
 
     @Column({ type: 'text', nullable: true })
-    description: string;
+    description?: string;
 
     @Column({ default: false }) // режим экзамена
     isExamMode: boolean;

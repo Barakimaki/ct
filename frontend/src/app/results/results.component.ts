@@ -54,7 +54,9 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sessionId = Number(this.route.snapshot.paramMap.get('sessionId') || 1);
+    console.log(this.route.snapshot, 'sessionId');
+    const sessionQueryParam = this.route.snapshot.queryParamMap.get('sessionId');
+    this.sessionId = sessionQueryParam ? +sessionQueryParam : 0;
     this.loadResults();
   }
 

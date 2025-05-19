@@ -3,7 +3,7 @@ import {Session} from "../sessions/session.entity";
 
 @Entity()
 export class User {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column()

@@ -17,6 +17,7 @@ import {MatRadioButton, MatRadioGroup} from "@angular/material/radio";
 import {FormsModule} from "@angular/forms";
 import {MatCheckbox} from "@angular/material/checkbox";
 import {MatButton} from "@angular/material/button";
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   selector: 'app-test',
@@ -38,6 +39,7 @@ import {MatButton} from "@angular/material/button";
 export class TestComponent implements OnInit, OnDestroy {
   sessionId!: number;
   testId!: number;
+  userId!: number;
   questions: Question[] = [];
   currentQuestionIndex = 0;
   selectedAnswers: string[] = [];
@@ -50,14 +52,21 @@ export class TestComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private testService: TestService
+    private testService: TestService,
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
     this.testId = +this.route.snapshot.paramMap.get('testId')!;
-    this.sessionId = +this.route.snapshot.queryParamMap.get('sessionId')!;
+    this.userId = this.authService.getUserIdFromToken();
+    if (!this.userId || this.userId < 0) {
+      alert('Пожалуйста, войдите в систему');
+      this.router.navigate(['/login']);
+      return;
+    }
 
     this.loadTest();
+    this.startSession();
     this.startTimer(60 * 5); // 5 минут
   }
 
@@ -99,7 +108,7 @@ export class TestComponent implements OnInit, OnDestroy {
     if (this.selectedAnswers.length === 0) return;
 
     this.isSubmitted = true;
-
+    console.log(this.sessionId)
     this.testService.submitAnswer(this.sessionId, this.currentQuestion.id, this.selectedAnswers).subscribe((res: any) => {
       this.isCorrect = res.isCorrect;
     });
@@ -138,5 +147,11 @@ export class TestComponent implements OnInit, OnDestroy {
         this.selectedAnswers.splice(index, 1);
       }
     }
+  }
+
+  startSession() {
+    this.testService.startSession(this.testId, this.userId).subscribe((res: any) => {
+      this.sessionId = res.id;
+    });
   }
 }

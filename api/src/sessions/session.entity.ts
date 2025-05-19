@@ -11,7 +11,7 @@ import { Answer } from '../answers/answer.entity';
 
 @Entity()
 export class Session {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })

@@ -18,7 +18,6 @@ export interface CreateQuestionDto {
 })
 export class TestService {
   private apiUrl = 'http://localhost:3000';
-
   constructor(private http: HttpClient) {
   }
 
@@ -26,7 +25,7 @@ export class TestService {
     return this.http.post<{ sessionId: number }>(`${this.apiUrl}/sessions/start`, {
       testId,
       userId,
-    });
+    })
   }
 
   submitAnswer(sessionId: number, questionId: number, selectedAnswers: string[]) {
@@ -43,6 +42,7 @@ export class TestService {
     correctAnswers: number;
     questions: any[];
   }> {
+    console.log('getResults', sessionId);
     return this.http.get<{
       sessionId: number;
       totalQuestions: number;
