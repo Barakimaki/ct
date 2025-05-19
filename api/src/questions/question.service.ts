@@ -4,12 +4,15 @@ import { Repository } from 'typeorm';
 import { Question } from './question.entity';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
+import {Test} from "../tests/test.entity";
 
 @Injectable()
 export class QuestionService {
     constructor(
         @InjectRepository(Question)
         private questionRepo: Repository<Question>,
+        @InjectRepository(Test)
+        private testRepo: Repository<Test>,
     ) {}
 
     async getAll(): Promise<Question[]> {
@@ -33,7 +36,14 @@ export class QuestionService {
     }
 
     async create(dto: CreateQuestionDto): Promise<Question> {
-        const question = this.questionRepo.create(dto);
+        const test = await this.testRepo.findOneBy({ id: dto.testId });
+        if (!test) throw new Error(`Test with ID ${dto.testId} not found`);
+
+        const question = this.questionRepo.create({
+            ...dto,
+            test,
+        });
+
         return await this.questionRepo.save(question);
     }
 

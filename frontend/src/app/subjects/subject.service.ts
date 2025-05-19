@@ -14,4 +14,12 @@ export class SubjectService {
   getAll(): Observable<Subject[]> {
     return this.http.get<Subject[]>(this.apiUrl);
   }
+
+  create(dto: any): Observable<Subject> {
+    return this.http.post<Subject>(this.apiUrl, dto);
+  }
+
+  delete(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

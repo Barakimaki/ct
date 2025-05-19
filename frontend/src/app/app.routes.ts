@@ -9,6 +9,11 @@ import {TestComponent} from "./test/test.component";
 import {ResultsComponent} from "./results/results.component";
 import {RepeatComponent} from "./repeat/repeat.component";
 import {HomeComponent} from "./home/home.component";
+import {CreateTestComponent} from "./admin/create-test/create-test.component";
+import {AddQuestionsComponent} from "./admin/add-questions/add-questions.component";
+import {AdminComponent} from "./admin/admin.component";
+import {AddSubjectComponent} from "./admin/add-subject/add-subject.component";
+import {SubjectsListComponent} from "./admin/subjects-list/subjects-list.component";
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -43,6 +48,30 @@ export const routes: Routes = [
     component: RepeatComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'create-test',
+        component: CreateTestComponent,
+      },
+      {
+        path: 'add-questions/:testId',
+        component: AddQuestionsComponent,
+      },
+      {
+        path: 'add-subject',
+        component: AddSubjectComponent,
+      },
+      {
+        path: 'subjects',
+        component: SubjectsListComponent,
+      },
+    ]
+  },
+
   {
     path: '',
     component: HomeComponent,

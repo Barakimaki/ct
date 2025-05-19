@@ -3,7 +3,7 @@ import {
     PrimaryGeneratedColumn,
     Column,
     ManyToOne,
-    OneToMany,
+    OneToMany, JoinColumn,
 } from 'typeorm';
 import { Subject } from '../subjects/subject.entity';
 import { Question } from '../questions/question.entity';
@@ -23,11 +23,15 @@ export class Test {
     @Column({ default: false }) // режим экзамена
     isExamMode: boolean;
 
-    @Column({ type: 'int' }) // время в минутах
+    @Column({ type: 'int', nullable: true }) // время в минутах
     timeLimitMinutes?: number;
 
     @ManyToOne(() => Subject, (s) => s.tests)
+    @JoinColumn({ name: 'subjectId' })
     subject: Subject;
+
+    @Column()
+    subjectId: string;
 
     @OneToMany(() => Question, (q) => q.test)
     questions: Question[];
