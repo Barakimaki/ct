@@ -11,7 +11,7 @@ export class ResultService {
 
   constructor(private http: HttpClient) {}
 
-  getResults(sessionId: string): Observable<TestResult> {
+  getResults(sessionId: number): Observable<TestResult> {
     return this.http.get<TestResult>(`${this.apiUrl}/${sessionId}/results`);
   }
 }

@@ -11,7 +11,7 @@ import { Question } from '../questions/question.entity';
 @Entity()
 export class Answer {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column({ type: 'json' })
     selectedAnswers: string[];
@@ -28,7 +28,7 @@ export class Answer {
     session: Session;
 
     @Column()
-    sessionId: string;
+    sessionId: number;
 
     // Связь с Question
     @ManyToOne(() => Question, (question) => question.answers)
@@ -36,5 +36,5 @@ export class Answer {
     question: Question;
 
     @Column()
-    questionId: string;
+    questionId: number;
 }

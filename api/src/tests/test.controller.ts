@@ -24,7 +24,7 @@ export class TestController {
 
     @UseGuards(AuthGuard)
     @Get(':id')
-    async getById(@Param('id') id: string) {
+    async getById(@Param('id') id: number) {
         return await this.testService.getById(id);
     }
 
@@ -36,13 +36,13 @@ export class TestController {
 
     @UseGuards(AuthGuard)
     @Put(':id')
-    async update(@Param('id') id: string, @Body() dto: UpdateTestDto) {
+    async update(@Param('id') id: number, @Body() dto: UpdateTestDto) {
         return await this.testService.update(id, dto);
     }
 
     @UseGuards(AuthGuard)
     @Delete(':id')
-    async delete(@Param('id') id: string) {
+    async delete(@Param('id') id: number) {
         return await this.testService.delete(id);
     }
 }

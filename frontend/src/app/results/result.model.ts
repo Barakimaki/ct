@@ -1,5 +1,5 @@
 export interface TestResult {
-  sessionId: string;
+  sessionId: number;
   totalQuestions: number;
   correctAnswers: number;
   percentage: number;
@@ -7,7 +7,7 @@ export interface TestResult {
 }
 
 export interface ResultQuestion {
-  questionId: string;
+  questionId: number;
   text: string;
   selectedAnswers: string[];
   correctAnswers: string[];

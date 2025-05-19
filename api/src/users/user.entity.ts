@@ -4,7 +4,7 @@ import {Session} from "../sessions/session.entity";
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column()
     fullName: string;

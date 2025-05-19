@@ -4,7 +4,7 @@ import {Test} from "../tests/test.entity";
 @Entity()
 export class Subject {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column({ unique: true })
     name: string; // например: "Математика"

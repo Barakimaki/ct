@@ -20,7 +20,7 @@ export class SubjectService {
         return await this.subjectRepo.save(subject);
     }
 
-    async remove(id: string): Promise<void> {
+    async remove(id: number): Promise<void> {
         await this.subjectRepo.delete(id);
     }
 }

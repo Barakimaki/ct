@@ -35,7 +35,7 @@ export class SubjectsListComponent implements OnInit {
     });
   }
 
-  deleteSubject(id: string) {
+  deleteSubject(id: number) {
     if (confirm('Удалить этот предмет?')) {
       this.subjectService.delete(id).subscribe(() => {
         this.subjects = this.subjects.filter(s => s.id !== id);

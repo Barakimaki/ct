@@ -29,7 +29,7 @@ export class SubjectController {
 
   @UseGuards(AuthGuard)
   @Delete(':id')
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: number) {
     return await this.subjectService.remove(id);
   }
 }

@@ -15,7 +15,7 @@ import {MatDivider} from "@angular/material/divider";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader, MatCardTitle} from "@angular/material/card";
 
 export interface CreateQuestionFormModel {
-  testId: string;
+  testId: number;
   text: string;
   options: string[];
   correctAnswers: string[];
@@ -48,15 +48,15 @@ export interface CreateQuestionFormModel {
   standalone: true
 })
 export class AddQuestionsComponent implements OnInit {
-  testId!: string;
+  testId!: number;
   testName: string = '';
   subjects: Subject[] = [];
 
   model: CreateQuestionFormModel = {
-    testId: '',
+    testId: 0,
     text: '',
     options: [''],
-    correctAnswers: [],
+    correctAnswers: [] as string[],
     explanation: '',
     type: 'single' as const,
   };
@@ -71,7 +71,7 @@ export class AddQuestionsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.testId = this.route.snapshot.paramMap.get('testId')!;
+    this.testId = +this.route.snapshot.paramMap.get('testId')!;
     this.model.testId = this.testId;
 
     this.loadTestInfo(this.testId);
@@ -79,7 +79,7 @@ export class AddQuestionsComponent implements OnInit {
     this.loadQuestions(this.testId);
   }
 
-  loadTestInfo(testId: string) {
+  loadTestInfo(testId: number) {
     this.testService.getTestById(testId).subscribe((test) => {
       this.testName = test.title;
     });
@@ -91,7 +91,7 @@ export class AddQuestionsComponent implements OnInit {
     });
   }
 
-  loadQuestions(testId: string): void {
+  loadQuestions(testId: number): void {
     this.testService.getQuestionsByTestId(testId).subscribe((questions) => {
       this.questions = questions;
     });
@@ -108,8 +108,25 @@ export class AddQuestionsComponent implements OnInit {
   }
 
   submitQuestion() {
-    this.testService.addQuestion(this.model).subscribe(() => {
-      this.questions.push({ ...this.model });
+    this.testService.addQuestion(this.model).subscribe((response) => {
+      // Преобразуем ответ к нужному формату
+      const question = {
+        id: response.id,
+        text: response.text,
+        options: response.options || [],
+        correctAnswers: Array.isArray(response.correctAnswers)
+          ? response.correctAnswers
+          : [response.correctAnswers],
+        explanation: response.explanation || '',
+        type: response.type,
+        testId: response.testId,
+        isCorrect: true, // или вычисляй при необходимости
+      };
+
+      // Добавляем в список вопросов
+      this.questions.push(question);
+
+      // Сбрасываем форму
       this.resetForm();
     });
   }
@@ -127,9 +144,13 @@ export class AddQuestionsComponent implements OnInit {
     this.router.navigate(['/tests']);
   }
 
-  deleteQuestion(questionId: string) {
+  deleteQuestion(questionId: number) {
     this.testService.deleteQuestion(questionId).subscribe(() => {
       this.questions = this.questions.filter(q => q.id !== questionId);
     });
+  }
+
+  trackByIndex(index: number) {
+    return index;
   }
 }

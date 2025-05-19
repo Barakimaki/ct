@@ -22,7 +22,7 @@ export class SessionController {
 
     @UseGuards(AuthGuard)
     @Get(':id')
-    async getById(@Param('id') id: string) {
+    async getById(@Param('id') id: number) {
         return await this.sessionService.getById(id);
     }
 

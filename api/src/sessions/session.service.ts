@@ -25,7 +25,7 @@ export class SessionService {
         return await this.sessionRepo.save(session);
     }
 
-    async getById(id: string): Promise<Session> {
+    async getById(id: number): Promise<Session> {
         const session = await this.sessionRepo.findOne({
             where: { id },
             relations: ['user', 'test', 'answers'],
@@ -35,7 +35,7 @@ export class SessionService {
     }
 
     async submitAnswer(
-        sessionId: string,
+        sessionId: number,
         dto: SubmitAnswerDto,
     ): Promise<{ isCorrect: boolean }> {
         const session = await this.getById(sessionId);

@@ -24,7 +24,7 @@ import {NgForOf, NgIf} from "@angular/common";
   standalone: true
 })
 export class TestsComponent implements OnInit {
-  subjectId!: string;
+  subjectId!: number;
   tests: Test[] = [];
 
   constructor(
@@ -34,7 +34,7 @@ export class TestsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.subjectId = this.route.snapshot.paramMap.get('subjectId')!;
+    this.subjectId = +this.route.snapshot.paramMap.get('subjectId')!;
     this.loadTests();
   }
 
@@ -44,7 +44,7 @@ export class TestsComponent implements OnInit {
     });
   }
 
-  startTest(testId: string): void {
+  startTest(testId: number): void {
     this.router.navigate(['/test', testId]);
   }
 }

@@ -12,7 +12,7 @@ import { Answer } from '../answers/answer.entity';
 @Entity()
 export class Session {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
     startedAt: Date;

@@ -18,7 +18,7 @@ export class AnswerController {
     }
 
     @Get('session/:sessionId')
-    async getBySessionId(@Param('sessionId') sessionId: string) {
+    async getBySessionId(@Param('sessionId') sessionId: number) {
         return await this.answerService.getBySessionId(sessionId);
     }
 }

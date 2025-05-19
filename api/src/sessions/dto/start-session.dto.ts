@@ -1,4 +1,4 @@
 export class StartSessionDto {
-    userId: string;
-    testId: string;
+    userId: number;
+    testId: number;
 }

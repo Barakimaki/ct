@@ -12,7 +12,7 @@ import { Answer } from '../answers/answer.entity';
 @Entity()
 export class Question {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column({ type: 'text' })
     text: string;
@@ -38,7 +38,7 @@ export class Question {
     test: Test;
 
     @Column()
-    testId: string;
+    testId: number;
 
     @OneToMany(() => Answer, (answer) => answer.question)
     answers: Answer[];

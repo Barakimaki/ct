@@ -4,5 +4,5 @@ export class CreateQuestionDto {
     correctAnswers: string[];
     explanation?: string;
     type: 'single' | 'multiple' | 'open';
-    testId: string;
+    testId: number;
 }

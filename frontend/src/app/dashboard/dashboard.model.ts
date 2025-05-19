@@ -1,6 +1,6 @@
 export interface UserTestResult {
-  sessionId: string;
-  testId: string;
+  sessionId: number;
+  testId: number;
   testName: string;
   subject: string;
   totalQuestions: number;

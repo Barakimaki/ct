@@ -33,7 +33,7 @@ import {MatInput} from "@angular/material/input";
   standalone: true
 })
 export class RepeatComponent implements OnInit {
-  sessionId!: string;
+  sessionId!: number;
   questions: RepeatQuestion[] = [];
   currentQuestionIndex = 0;
   selectedAnswers: string[] = [];
@@ -47,7 +47,7 @@ export class RepeatComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.sessionId = this.route.snapshot.paramMap.get('sessionId')!;
+    this.sessionId = +this.route.snapshot.paramMap.get('sessionId')!;
     this.loadQuestions();
   }
 

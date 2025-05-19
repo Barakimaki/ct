@@ -11,7 +11,7 @@ export class TestsService {
 
   constructor(private http: HttpClient) {}
 
-  getBySubjectId(subjectId: string): Observable<Test[]> {
+  getBySubjectId(subjectId: number): Observable<Test[]> {
     return this.http.get<Test[]>(`${this.apiUrl}?subjectId=${subjectId}`);
   }
 }

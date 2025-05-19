@@ -24,13 +24,13 @@ export class QuestionController {
 
   @UseGuards(AuthGuard)
   @Get(':id')
-  async getById(@Param('id') id: string) {
+  async getById(@Param('id') id: number) {
     return await this.questionService.getById(id);
   }
 
   @UseGuards(AuthGuard)
   @Get('test/:testId')
-  async getByTestId(@Param('testId') testId: string) {
+  async getByTestId(@Param('testId') testId: number) {
     return await this.questionService.getByTestId(testId);
   }
 
@@ -42,13 +42,13 @@ export class QuestionController {
 
   @UseGuards(AuthGuard)
   @Put(':id')
-  async update(@Param('id') id: string, @Body() dto: UpdateQuestionDto) {
+  async update(@Param('id') id: number, @Body() dto: UpdateQuestionDto) {
     return await this.questionService.update(id, dto);
   }
 
   @UseGuards(AuthGuard)
   @Delete(':id')
-  async delete(@Param('id') id: string) {
+  async delete(@Param('id') id: number) {
     return await this.questionService.delete(id);
   }
 }

@@ -12,7 +12,7 @@ import {Session} from "../sessions/session.entity";
 @Entity()
 export class Test {
     @PrimaryGeneratedColumn()
-    id: string;
+    id: number;
 
     @Column()
     title: string;
@@ -31,7 +31,7 @@ export class Test {
     subject: Subject;
 
     @Column()
-    subjectId: string;
+    subjectId: number;
 
     @OneToMany(() => Question, (q) => q.test)
     questions: Question[];

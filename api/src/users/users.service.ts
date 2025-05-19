@@ -10,7 +10,7 @@ export class UsersService {
         private userRepo: Repository<User>,
     ) {}
 
-    async getUserResults(userId: string) {
+    async getUserResults(userId: number) {
         const user = await this.userRepo.findOne({
             where: { id: userId },
             relations: ['sessions', 'sessions.test'],

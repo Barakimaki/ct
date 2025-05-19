@@ -1,6 +1,6 @@
 export class CreateAnswerDto {
-    sessionId: string;
-    questionId: string;
+    sessionId: number;
+    questionId: number;
     selectedAnswers: string[];
     isCorrect: boolean;
 }

@@ -43,7 +43,7 @@ import {NgForOf, NgIf} from "@angular/common";
   standalone: true
 })
 export class ResultsComponent implements OnInit {
-  sessionId!: string;
+  sessionId!: number;
   result!: TestResult;
 
   constructor(
@@ -54,7 +54,7 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sessionId = this.route.snapshot.paramMap.get('sessionId') || 'session-123';
+    this.sessionId = Number(this.route.snapshot.paramMap.get('sessionId') || 1);
     this.loadResults();
   }
 

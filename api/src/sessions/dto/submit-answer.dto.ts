@@ -1,5 +1,5 @@
 export class SubmitAnswerDto {
-    sessionId: string;
-    questionId: string;
+    sessionId: number;
+    questionId: number;
     selectedAnswers: string[];
 }

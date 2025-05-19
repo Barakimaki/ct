@@ -5,54 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc61bd8b-3a64-463b-ba6e-4184e3c8784e" name="Changes" comment="Ya skazala STARTUEM">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/answers/answer.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/answers/answer.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/answers/answer.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/answers/answer.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/answers/answer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/answers/answer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/answers/dto/create-answer.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/answers/dto/create-answer.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/questions/dto/create-question.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/questions/dto/create-question.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/questions/question.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/questions/question.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/questions/question.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/questions/question.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/questions/question.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/questions/question.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/dto/start-session.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/dto/start-session.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/dto/submit-answer.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/dto/submit-answer.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/session.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/sessions/session.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/subjects/subject.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/subjects/subject.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/subjects/subject.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/subjects/subject.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/subjects/subject.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/subjects/subject.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/tests/dto/create-test.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/tests/dto/create-test.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/tests/test.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/tests/test.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/tests/test.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/tests/test.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/tests/test.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/tests/test.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/users/user.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/users/user.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/users/users.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/add-questions/add-questions.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/add-questions/add-questions.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/add-questions/add-questions.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/add-questions/add-questions.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/add-subject/add-subject.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/add-subject/add-subject.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/add-subject/add-subject.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/add-subject/add-subject.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/add-subject/add-subject.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/add-subject/add-subject.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/admin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/admin.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/admin.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/admin.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/admin.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/create-test/create-test.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/create-test/create-test.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/create-test/create-test.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/create-test/create-test.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/subjects-list/subjects-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/subjects-list/subjects-list.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/subjects-list/subjects-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/subjects-list/subjects-list.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/app.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/add-questions/add-questions.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/add-questions/add-questions.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/admin/subjects-list/subjects-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/admin/subjects-list/subjects-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/results/results.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/results.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/results/results.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/results.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/repeat/repeat.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/results/result.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/result.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/results/result.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/result.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/results/results.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/results.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/subjects/subjects.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/subjects/subjects.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/subjects/subjects.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/subjects/subjects.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/subjects/subject.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/subjects/subject.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/subjects/subject.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/subjects/subject.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/subjects/subjects.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/subjects/subjects.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/question.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/question.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/session.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/session.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/tests/tests.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/tests/tests.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/tests/tests.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/tests/tests.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/tests/test.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/tests/test.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/tests/tests.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/tests/tests.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/tests/tests.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/tests/tests.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1747601498942</updated>
       <workItem from="1747601501138" duration="4823000" />
-      <workItem from="1747674143998" duration="11427000" />
+      <workItem from="1747674143998" duration="13383000" />
     </task>
     <task id="LOCAL-00001" summary="Ya skazala STARTUEM">
       <option name="closed" value="true" />
@@ -165,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747683479833</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Ya skazala STARTUEM">
+      <option name="closed" value="true" />
+      <created>1747687506319</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747687506319</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,8 +186,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="first commit" />
     <MESSAGE value="Ya skazala STARTUEM" />
     <option name="LAST_COMMIT_MESSAGE" value="Ya skazala STARTUEM" />
+    <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>

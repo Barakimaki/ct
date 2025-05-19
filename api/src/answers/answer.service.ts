@@ -16,7 +16,7 @@ export class AnswerService {
         return await this.answerRepo.save(answer);
     }
 
-    async getBySessionId(sessionId: string): Promise<Answer[]> {
+    async getBySessionId(sessionId: number): Promise<Answer[]> {
         return await this.answerRepo.find({
             where: { sessionId },
             relations: ['question'],

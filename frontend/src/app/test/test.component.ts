@@ -36,8 +36,8 @@ import {MatButton} from "@angular/material/button";
   standalone: true
 })
 export class TestComponent implements OnInit, OnDestroy {
-  sessionId!: string;
-  testId!: string;
+  sessionId!: number;
+  testId!: number;
   questions: Question[] = [];
   currentQuestionIndex = 0;
   selectedAnswers: string[] = [];
@@ -54,8 +54,8 @@ export class TestComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.testId = this.route.snapshot.paramMap.get('testId')!;
-    this.sessionId = this.route.snapshot.queryParamMap.get('sessionId')!;
+    this.testId = +this.route.snapshot.paramMap.get('testId')!;
+    this.sessionId = +this.route.snapshot.queryParamMap.get('sessionId')!;
 
     this.loadTest();
     this.startTimer(60 * 5); // 5 минут
@@ -68,12 +68,6 @@ export class TestComponent implements OnInit, OnDestroy {
   loadTest() {
     this.testService.getQuestionsByTestId(this.testId).subscribe((questions) => {
       this.questions = questions;
-    });
-  }
-
-  startSession(): void {
-    this.testService.startSession(this.testId, 'user-123').subscribe((res) => {
-      console.log('Сессия начата:', res.sessionId);
     });
   }
 

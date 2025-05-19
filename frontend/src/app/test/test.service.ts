@@ -10,7 +10,7 @@ export interface CreateQuestionDto {
   correctAnswers: string[];
   explanation?: string;
   type: 'single' | 'multiple' | 'open';
-  testId: string;
+  testId: number;
 }
 
 @Injectable({
@@ -22,14 +22,14 @@ export class TestService {
   constructor(private http: HttpClient) {
   }
 
-  startSession(testId: string, userId: string = 'user-123'): Observable<{ sessionId: string }> {
-    return this.http.post<{ sessionId: string }>(`${this.apiUrl}/sessions/start`, {
+  startSession(testId: number, userId: number): Observable<{ sessionId: number }> {
+    return this.http.post<{ sessionId: number }>(`${this.apiUrl}/sessions/start`, {
       testId,
       userId,
     });
   }
 
-  submitAnswer(sessionId: string, questionId: string, selectedAnswers: string[]) {
+  submitAnswer(sessionId: number, questionId: number, selectedAnswers: string[]) {
     return this.http.post(`${this.apiUrl}/sessions/submit`, {
       sessionId,
       questionId,
@@ -37,18 +37,18 @@ export class TestService {
     });
   }
 
-  getResults(sessionId: string): Observable<{
-    sessionId: string;
+  getResults(sessionId: number): Observable<{
+    sessionId: number;
     totalQuestions: number;
     correctAnswers: number;
     questions: any[];
   }> {
     return this.http.get<{
-      sessionId: string;
+      sessionId: number;
       totalQuestions: number;
       correctAnswers: number;
       questions: Array<{
-        questionId: string;
+        questionId: number;
         text: string;
         options: string[];
         correctAnswers: string[];
@@ -67,15 +67,15 @@ export class TestService {
     return this.http.post<Question>(`${this.apiUrl}/questions`, dto);
   }
 
-  getTestById(testId: string): Observable<any> {
+  getTestById(testId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/tests/${testId}`);
   }
 
-  getQuestionsByTestId(testId: string): Observable<any[]> {
+  getQuestionsByTestId(testId: number): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/questions/test/${testId}`);
   }
 
-  deleteQuestion(questionId: string): Observable<any> {
+  deleteQuestion(questionId: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/questions/${questionId}`);
   }
 }

@@ -19,7 +19,7 @@ export class SubjectService {
     return this.http.post<Subject>(this.apiUrl, dto);
   }
 
-  delete(id: string): Observable<void> {
+  delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

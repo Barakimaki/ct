@@ -19,7 +19,7 @@ export class TestService {
     return await this.testRepo.find({ relations: ['subject'] });
   }
 
-  async getById(id: string): Promise<Test> {
+  async getById(id: number): Promise<Test> {
     const test = await this.testRepo.findOne({
       where: { id },
       relations: ['subject', 'questions'],
@@ -37,13 +37,13 @@ export class TestService {
     return await this.testRepo.save(test);
   }
 
-  async update(id: string, dto: UpdateTestDto): Promise<Test> {
+  async update(id: number, dto: UpdateTestDto): Promise<Test> {
     const test = await this.getById(id);
     Object.assign(test, dto);
     return await this.testRepo.save(test);
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(id: number): Promise<void> {
     const result = await this.testRepo.delete(id);
     if (result.affected === 0) {
       throw new Error(`Test with ID ${id} not found`);

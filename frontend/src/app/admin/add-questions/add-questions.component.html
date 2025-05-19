@@ -51,21 +51,18 @@
   </mat-form-field>
 
   <!-- Варианты ответов -->
-  <div class="options-container" *ngIf="form && form.get('type')?.value !== 'open'">
-  <p><strong>Варианты ответов:</strong></p>
-
-  <div class="option-row" *ngFor="let option of options.controls; let i = index">
-    <input matInput [formControlName]="i">
-    <button mat-icon-button color="warn" (click)="removeOption(i)" type="button"
-            *ngIf="options.length > 1">
-      <mat-icon>delete</mat-icon>
+  <div class="options-container" *ngIf="model.type !== 'open'">
+    <p><strong>Варианты ответов:</strong></p>
+    <div class="option-row" *ngFor="let opt of model.options; let i = index; trackBy: trackByIndex">
+      <input matInput [(ngModel)]="model.options[i]" name="option_{{i}}" placeholder="Вариант {{i + 1}}">
+      <button mat-icon-button color="warn" (click)="removeOption(i)" *ngIf="model.options.length > 1" type="button">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <button mat-stroked-button color="primary" (click)="addOption()" type="button">
+      + Добавить вариант
     </button>
   </div>
-
-  <button mat-stroked-button color="primary" (click)="addOption()" type="button">
-    + Добавить вариант
-  </button>
-</div>
 
   <!-- Правильные ответы -->
   <mat-form-field appearance="outline" *ngIf="model.type === 'single' || model.type === 'multiple'" class="full-width">

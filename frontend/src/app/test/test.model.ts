@@ -1,6 +1,6 @@
 export interface Test {
-  id: string;
+  id: number;
   title: string;
   description?: string;
-  subjectId: string;
+  subjectId: number;
 }

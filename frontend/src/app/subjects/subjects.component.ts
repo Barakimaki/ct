@@ -31,7 +31,7 @@ export class SubjectsComponent implements OnInit {
     });
   }
 
-  goToTests(subjectId: string): void {
+  goToTests(subjectId: number): void {
     this.router.navigate(['/tests', subjectId]);
   }
 }

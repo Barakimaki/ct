@@ -1,5 +1,5 @@
 export interface RepeatQuestion {
-  id: string;
+  id: number;
   text: string;
   options: string[];
   correctAnswers: string[];
