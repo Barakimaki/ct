@@ -3,7 +3,7 @@ import {
     PrimaryGeneratedColumn,
     Column,
     ManyToOne,
-    OneToMany,
+    OneToMany, JoinColumn,
 } from 'typeorm';
 import { User } from '../users/user.entity';
 import { Test } from '../tests/test.entity';
@@ -32,8 +32,9 @@ export class Session {
     @ManyToOne(() => User, (user) => user.sessions)
     user: User;
 
-    @ManyToOne(() => Test, (test) => test.sessions)
-    test: Test;
+    @ManyToOne(() => Test, (t) => t.sessions)
+    @JoinColumn({ name: 'testId' })
+    test!: Test;
 
     @OneToMany(() => Answer, (answer) => answer.session)
     answers: Answer[];

@@ -46,10 +46,11 @@ export class DashboardComponent implements OnInit {
   }
 
   loadUserResults(): void {
-    this.authService.getUserStats().subscribe((data) => {
-      this.results = data.map((r: any) => ({
+    this.authService.getUserStats().subscribe(data => {
+      this.results = data.map(r => ({
         ...r,
-        percentage: Math.round((r.correctAnswers / r.totalQuestions) * 100),
+        subject: r.subject || 'Неизвестный предмет',
+        percentage: Math.round((r.correctAnswers / r.totalQuestions) * 100)
       }));
     });
   }

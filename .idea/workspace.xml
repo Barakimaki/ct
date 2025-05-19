@@ -6,16 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="cc61bd8b-3a64-463b-ba6e-4184e3c8784e" name="Changes" comment="Ya skazala STARTUEM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/answers/answer.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/answers/answer.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/questions/question.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/questions/question.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/session.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.controller.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/sessions/session.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/subjects/subject.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/subjects/subject.entity.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/session.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/sessions/session.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/sessions/session.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/src/tests/test.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/tests/test.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/users/user.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/users/user.entity.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/src/users/users.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/users/users.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/dashboard/dashboard.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/app/results/result.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/result.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/app/results/results.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/results/results.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/app/test/test.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/app/test/test.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1747601498942</updated>
       <workItem from="1747601501138" duration="4823000" />
-      <workItem from="1747674143998" duration="15965000" />
+      <workItem from="1747674143998" duration="17607000" />
     </task>
     <task id="LOCAL-00001" summary="Ya skazala STARTUEM">
       <option name="closed" value="true" />
@@ -144,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747689415236</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ya skazala STARTUEM">
+      <option name="closed" value="true" />
+      <created>1747692027712</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1747692027712</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

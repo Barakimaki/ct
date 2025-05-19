@@ -10,10 +10,11 @@ import { AnswerService } from '../answers/answer.service';
 import { Question } from '../questions/question.entity';
 import { Answer } from '../answers/answer.entity';
 import { Test } from '../tests/test.entity';
+import {Subject} from "../subjects/subject.entity";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Session, Question, Answer, Test]),
+    TypeOrmModule.forFeature([Session, Question, Answer, Test, Subject]),
     QuestionModule,
     AnswerModule,
   ],

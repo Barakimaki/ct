@@ -26,12 +26,12 @@ export class Test {
     @Column({ type: 'int', nullable: true }) // время в минутах
     timeLimitMinutes?: number;
 
-    @ManyToOne(() => Subject, (s) => s.tests)
-    @JoinColumn({ name: 'subjectId' })
-    subject: Subject;
-
     @Column()
     subjectId: number;
+
+    @ManyToOne(() => Subject, (s) => s.tests)
+    @JoinColumn({ name: 'subjectId' })
+    subject!: Subject;
 
     @OneToMany(() => Question, (q) => q.test)
     questions: Question[];

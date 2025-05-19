@@ -31,4 +31,10 @@ export class SessionController {
     async submitAnswer(@Body() dto: SubmitAnswerDto) {
         return await this.sessionService.submitAnswer(dto.sessionId, dto);
     }
+
+    @UseGuards(AuthGuard)
+    @Get(':id/results')
+    async getResults(@Param('id') sessionId: number) {
+        return await this.sessionService.getResults(sessionId);
+    }
 }
