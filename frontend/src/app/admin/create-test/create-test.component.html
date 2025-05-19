@@ -1,0 +1,26 @@
+<h3>Создать тест</h3>
+
+<mat-card>
+  <mat-card-content>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <input matInput [(ngModel)]="model.title" name="title" required placeholder="Название теста">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <textarea matInput [(ngModel)]="model.description" name="description" placeholder="Описание"></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Выберите предмет</mat-label>
+        <mat-select [(ngModel)]="model.subjectId" name="subjectId" required>
+          <mat-option *ngFor="let subject of subjects" [value]="subject.id">
+            {{ subject.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Сохранить и добавить вопросы</button>
+    </form>
+  </mat-card-content>
+</mat-card>

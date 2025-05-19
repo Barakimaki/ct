@@ -1,0 +1,25 @@
+.full-width {
+  width: 100%;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.question-list {
+  margin-bottom: 24px;
+}
+
+.no-questions {
+  color: #999;
+  font-style: italic;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 16px;
+}

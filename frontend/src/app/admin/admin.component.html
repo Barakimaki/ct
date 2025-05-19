@@ -1,0 +1,13 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <a matListItem routerLink="/admin/create-test">Создать тест</a>
+      <a matListItem routerLink="/admin/add-subject">Добавить предмет</a>
+      <a matListItem routerLink="/admin/subjects">Список предметов</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
